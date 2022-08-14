@@ -1,4 +1,19 @@
-import React from 'react';
+import React from "react";
+import { useState } from "react";
+
+function InlineStyleComponent(props) {
+  useEffect(() => {
+    const scriptTag = document.createElement("script");
+
+    scriptTag.src = "https://wow.zamimg.com/widgets/power.js";
+    scriptTag.async = true;
+
+    document.body.appendChild(scriptTag);
+    return () => {
+      document.body.removeChild(scriptTag);
+    };
+  }, []);
+}
 
 const Header = ({ category, title }) => (
   <div className=" mb-10">
